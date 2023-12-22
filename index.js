@@ -5,7 +5,10 @@ import Parser from "rss-parser";
  * README.MD
  */
 
-let text = `# Hi there 👋
+let text = `
+## 능이 개발자의 블로그
+<a href=https://codinghan.tistory.com/><img src=\"https://tistory1.daumcdn.net/tistory/5180850/attach/5c7ec571e4a94f2d926efb474d114c39\" width=\"320\"></a>
+
 
 ## 📕 Latest Blog Posts
 
