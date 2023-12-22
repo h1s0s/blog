@@ -7,7 +7,7 @@ on:
   # 1시간에 한번씩 0 */1 * * *
   # 매 몇분마다
   schedule:
-    - cron: "*/34 * * * *"
+    - cron: "*/1 * * * *"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
