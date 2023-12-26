@@ -4,10 +4,9 @@ name: Readme Update
 
 # Controls when the workflow will run
 on:
-  # 1시간에 한번씩 0 */1 * * *
-  # 매 몇분마다
+  # 12시간에 한번씩 0 */12 * * *
   schedule:
-    - cron: "0 */1 * * *"
+    - cron: "0 */12 * * *"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
