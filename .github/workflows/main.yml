@@ -5,7 +5,7 @@ name: Readme Update
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "0 */1 * * *"
+    - cron: "0 */12 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -13,14 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Check for Changes
-        id: check_changes
-        run: |
-          git diff --exit-code || echo "Files have changed"
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Install dependencies
@@ -28,10 +22,9 @@ jobs:
       - name: Update README
         run: npm start
       - name: Commit README
-        if: steps.check_changes.outputs.return-code == '0'
         run: |
-          git add .
-          git config --local user.email "91957568+h1s0s@users.noreply.github.com"
-          git config --local user.name "HANSANGSEON"
-          git commit -m "Auto commit - Changes detected"
-          git push
+            git add .
+            git config --local user.email "91957568+h1s0s@users.noreply.github.com"
+            git config --local user.name "HANSANGSEON"
+            git commit -m "Update README.md"
+            git push
