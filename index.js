@@ -1,6 +1,14 @@
 import { writeFileSync } from 'node:fs';
 import Parser from "rss-parser";
 
+
+var today = new Date();
+
+var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+
+var dateString = year + '-' + month  + '-' + day;
 /**
  * README.MD
  */
@@ -13,6 +21,8 @@ let text = `
 ## 📕 Latest Blog Posts
 
 `;
+
+text += '<p>'+dateString+'</p></br>';
 
 // rss-parser 생성
 const parser = new Parser({
