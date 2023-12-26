@@ -7,8 +7,12 @@ var today = new Date();
 var year = today.getFullYear();
 var month = ('0' + (today.getMonth() + 1)).slice(-2);
 var day = ('0' + today.getDate()).slice(-2);
+var hours = ('0' + today.getHours()).slice(-2);
+var minutes = ('0' + today.getMinutes()).slice(-2);
+var seconds = ('0' + today.getSeconds()).slice(-2);
 
 var dateString = year + '-' + month  + '-' + day;
+var timeString = hours + ':' + minutes  + ':' + seconds;
 /**
  * README.MD
  */
@@ -22,7 +26,7 @@ let text = `
 
 `;
 
-text += '<p>'+dateString+'</p></br>';
+text += '<p>'+dateString+' '+timeString+'</p>';
 
 // rss-parser 생성
 const parser = new Parser({
