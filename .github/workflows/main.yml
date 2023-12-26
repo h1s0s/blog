@@ -6,7 +6,8 @@ name: Readme Update
 on:
   # 12시간에 한번씩 0 */12 * * *
   schedule:
-    - cron: "0 */12 * * *"
+#    - cron: "0 */12 * * *"
+    - cron: "0 */1 * * *"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,8 +24,12 @@ jobs:
         run: npm start
       - name: Commit README
         run: |
-          git add .
-          git config --local user.email "91957568+h1s0s@users.noreply.github.com"
-          git config --local user.name "HANSANGSEON"
-          git commit -m "Update README.md"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git config --local user.email "91957568+h1s0s@users.noreply.github.com"
+            git config --local user.name "HANSANGSEON"
+            git commit -m "Update README.md"
+            git push
+          else
+            echo "No changes to commit."
+          fi
