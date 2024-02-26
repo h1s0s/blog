@@ -26,7 +26,7 @@ let text = `
 
 `;
 
-text += '<p>'+dateString+' '+timeString+'</p>';
+// text += '<p>'+dateString+' '+timeString+'</p>';
 
 // rss-parser 생성
 const parser = new Parser({
