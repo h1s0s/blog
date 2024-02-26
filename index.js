@@ -50,9 +50,9 @@ const parser = new Parser({
         console.log(`날짜: ${isoDate}`);
         console.log(`카테고리: ${categories}`);
         if (diff <= 86400000) {
-            text += `<a href=${link}>[${categories}] ${title}</a>[NEW] ${formattedDate}, ${formattedTime}</br>`;
+            text += `<a href=${link}>${title}</a>[NEW] ${formattedDate} ${formattedTime}</br>`;
         } else {
-            text += `<a href=${link}>[${categories}] ${title}</a> ${formattedDate}, ${formattedTime}</br>`;
+            text += `<a href=${link}>${title}</a> ${formattedDate} ${formattedTime}</br>`;
         }
     }
 
