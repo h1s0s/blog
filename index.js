@@ -34,13 +34,26 @@ const parser = new Parser({
 
     // 피드 목록
     const feed = await parser.parseURL('https://codinghan.tistory.com/rss');
+    let now = new Date();
 
+    console.log(feed.items)
     for (let i = 0; i < feed.items.length; i++) {
-        const {title, link} = feed.items[i];
+        const {title, link, categories, isoDate} = feed.items[i];
+        let date = new Date(isoDate);
+        let formattedDate = date.toLocaleDateString();
+        let formattedTime = date.toLocaleTimeString();
+        let diff = now.getTime() - date.getTime();
+
         console.log(`${i + 1}번째 게시물`);
         console.log(`추가될 제목: ${title}`);
         console.log(`추가될 링크: ${link}`);
-        text += `<a href=${link}>${title}</a></br>`;
+        console.log(`날짜: ${isoDate}`);
+        console.log(`카테고리: ${categories}`);
+        if (diff <= 86400000) {
+            text += `<a href=${link}>[${categories}] ${title}</a>[NEW] ${formattedDate}, ${formattedTime}</br>`;
+        } else {
+            text += `<a href=${link}>[${categories}] ${title}</a> ${formattedDate}, ${formattedTime}</br>`;
+        }
     }
 
     // README.md 파일 작성
