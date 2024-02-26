@@ -19,10 +19,6 @@ var timeString = hours + ':' + minutes  + ':' + seconds;
 
 let text = `
 ## 능이 개발자의 블로그
-<a href=https://codinghan.tistory.com/><img src=\"https://tistory1.daumcdn.net/tistory/5180850/attach/5c7ec571e4a94f2d926efb474d114c39\" width=\"320\"></a>
-
-
-## 📕 Latest Blog Posts
 
 `;
 
@@ -39,7 +35,6 @@ const parser = new Parser({
     // 피드 목록
     const feed = await parser.parseURL('https://codinghan.tistory.com/rss');
 
-    // 최신 5개의 글의 제목과 링크를 가져온 후 text에 추가
     for (let i = 0; i < feed.items.length; i++) {
         const {title, link} = feed.items[i];
         console.log(`${i + 1}번째 게시물`);
